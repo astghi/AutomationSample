@@ -7,6 +7,39 @@
     <groupId>com.test</groupId>
     <artifactId>outofmilk</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <description>OutOfMilk tests using TestNG</description>
 
+    <dependencies>
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>6.8.17</version>
+    </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <realDevice>true</realDevice>
+        <port>4725</port>
+        <device>CB5A21696T</device>
+        <deviceName>D6633</deviceName>
+    </properties>
 
 </project>
