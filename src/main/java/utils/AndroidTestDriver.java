@@ -1,6 +1,6 @@
 package utils;
 
-import io.appium.java_client.AppiumDriver;
+import org.testng.annotations.AfterClass;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
@@ -29,12 +29,9 @@ public class AndroidTestDriver {
         capabilities.setCapability("platformVersion", "6.0.1");
         capabilities.setCapability("appPackage", "com.capigami.outofmilk");
         capabilities.setCapability("appActivity", ".MainActivity");
-        capabilities.setCapability("resetKeyboard", true);
         capabilities.setCapability("appium-version", "1.6.5");
         capabilities.setCapability("deviceName", "D6633");
-//        capabilities.setCapability("udid", "336592896X");
         capabilities.setCapability("newCommandTimeout", 40);
-        capabilities.setCapability("noReset", "false");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4725" + "/wd/hub"), capabilities);
     }
@@ -42,5 +39,10 @@ public class AndroidTestDriver {
     @BeforeMethod
     public void startDriver() throws MalformedURLException {
         instantiateDevice();
+    }
+
+    @AfterClass
+    public void tearDown() throws Exception {
+        driver.quit();
     }
 }

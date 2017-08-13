@@ -6,6 +6,10 @@ import screens.ListScreen;
 import screens.SignInScreen;
 import utils.AndroidTestDriver;
 import utils.CommonUtils;
+import static org.testng.Assert.assertTrue;
+
+
+import java.io.IOException;
 
 /**
  * Created by am on 8/12/17.
@@ -26,15 +30,17 @@ public class ShoppingListTest extends AndroidTestDriver {
     // TEST #6 from checklist
     // Verify Search by typing the product name.
     @Test
-    public void verifyAddingItemToShoppingList() throws InterruptedException {
+    public void verifyAddingItemToShoppingList() throws InterruptedException, IOException {
         if (signInScreen.isSkipButtonBresent()) {
             signInScreen.clickSkipButton();
         }
-
-        listScreen.clickOnSearchBox();
+        Thread.sleep(4000);
         if (signInScreen.isAlertDialogPresent()) {
             signInScreen.clikUpdateAlertOkButton();
         }
-        listScreen.typeInSearchBox("bis");
+        listScreen.clickOnSearchBox();
+        listScreen.typeInSearchBox("Biscuit");
+        utils.sendKeyEvent(66);
+        assertTrue(!listScreen.isItemAdded("Biscuit"), "Item is not added");
     }
 }

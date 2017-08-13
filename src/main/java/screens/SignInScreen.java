@@ -13,7 +13,7 @@ public class SignInScreen extends AbstractScreen {
 
     private By SKIP_BUTTON = By.id(packageName + ":id/action_skip");
     private By UPDATE_ALERT = By.id(packageName + ":id/alertTitle");
-    private By UPDATE_ALERT_OK_BUTTON = By.id(packageName + ":id/button1");
+    private By UPDATE_ALERT_OK_BUTTON = By.id("android:id/button1");
 
     public void clickSkipButton() {utils.click(SKIP_BUTTON);}
     public void clikUpdateAlertOkButton() { utils.click(UPDATE_ALERT_OK_BUTTON);}
